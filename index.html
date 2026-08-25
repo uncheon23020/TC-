@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="운천고등학교 TC 로보틱스 팀 홍보 사이트">
+<title>TC ROBOTICS — 운천고등학교</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080808;
+  --bg-2:#0f0f0f;
+  --panel:#141414;
+  --paper:#f2f0ea;
+  --white:#ffffff;
+  --text:#f4f4f1;
+  --muted:#9d9d97;
+  --red:#ef2b22;
+  --red-dark:#a91510;
+  --line:rgba(255,255,255,.14);
+  --line-dark:rgba(10,10,10,.14);
+  --max:1480px;
+  --pad:clamp(20px,5vw,72px);
+  --nav:74px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 18px)}
+body{background:var(--bg);color:var(--text);font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}img,video{display:block;max-width:100%}
+::selection{background:var(--red);color:#fff}
+.container{width:min(var(--max),100%);margin:0 auto;padding-inline:var(--pad)}
+.mono{font-family:'JetBrains Mono',monospace}.red{color:var(--red)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease)}.reveal.on{opacity:1;transform:none}
+
+/* ===== NAV ===== */
+.nav{position:fixed;z-index:2000;inset:0 0 auto;height:var(--nav);display:flex;align-items:center;border-bottom:1px solid transparent;transition:.25s}
+.nav.scrolled{background:rgba(8,8,8,.9);border-color:var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:26px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:40px;height:40px;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;font:700 .95rem/1 'JetBrains Mono',monospace;position:relative}
+.brand-mark:after{content:"";position:absolute;right:-1px;bottom:-1px;width:12px;height:3px;background:var(--red)}
+.brand-mark b{color:var(--red)}
+.brand-copy strong{display:block;font-size:.91rem;letter-spacing:-.02em}.brand-copy small{display:block;margin-top:4px;color:rgba(255,255,255,.4);font:500 .61rem/1 'JetBrains Mono',monospace;letter-spacing:.09em}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:.8rem;font-weight:650}.nav-links a{color:rgba(255,255,255,.62);transition:.2s}.nav-links a:hover{color:#fff}
+.nav-actions{display:flex;gap:8px;align-items:center}.nav-btn{height:38px;padding:0 13px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:.73rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:.2s}.nav-btn:hover{background:#fff;color:#080808}.nav-btn svg{width:15px}.menu-btn{display:none;width:38px;padding:0;justify-content:center}
+.mobile-nav{display:none;position:fixed;z-index:1900;inset:var(--nav) 0 auto;background:#090909;border-bottom:1px solid var(--line);padding:20px var(--pad)}.mobile-nav.open{display:grid;gap:0}.mobile-nav a{padding:16px 0;border-bottom:1px solid var(--line);font-size:1rem;font-weight:700}.mobile-nav a:last-child{border-bottom:0}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:#080808}
+.hero-media{position:absolute;inset:0;z-index:-5;overflow:hidden;background:#101010}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.03)}
+.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.96) 0%,rgba(8,8,8,.75) 45%,rgba(8,8,8,.27) 78%,rgba(8,8,8,.58) 100%),linear-gradient(0deg,#080808 0%,transparent 34%,rgba(8,8,8,.22) 100%)}
+.hero-media-placeholder{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#111 0%,#090909 62%,#150a09 100%)}
+.hero-media-placeholder:before{content:"";position:absolute;inset:-30%;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:58px 58px;transform:perspective(800px) rotateX(58deg) rotateZ(-8deg) translateY(12%);transform-origin:center;opacity:.55}
+.hero-media-placeholder:after{content:"";position:absolute;width:62vw;height:62vw;border:1px solid rgba(239,43,34,.24);border-radius:50%;right:-23vw;top:-28vw;box-shadow:0 0 0 110px rgba(239,43,34,.035),0 0 0 220px rgba(239,43,34,.02)}
+.robot-wire{position:relative;width:min(48vw,680px);aspect-ratio:1.25;border:1px solid rgba(255,255,255,.08);margin-left:auto;margin-right:7vw;opacity:.86;transform:skewY(-3deg)}
+.robot-wire .frame{position:absolute;left:10%;right:10%;bottom:12%;height:47%;border:2px solid rgba(255,255,255,.17);clip-path:polygon(8% 0,92% 0,100% 22%,95% 100%,5% 100%,0 22%)}
+.robot-wire .wheel{position:absolute;bottom:2%;width:18%;aspect-ratio:1;border:2px solid rgba(255,255,255,.22);border-radius:50%}.robot-wire .w1{left:8%}.robot-wire .w2{right:8%}
+.robot-wire .arm{position:absolute;width:7%;height:54%;left:49%;bottom:42%;border:2px solid rgba(239,43,34,.55);transform:rotate(18deg);transform-origin:bottom}.robot-wire .arm:after{content:"";position:absolute;width:210%;height:20%;border:2px solid rgba(239,43,34,.55);right:-150%;top:-8%;transform:rotate(-36deg)}
+.hero-content{position:relative;width:100%;padding-top:calc(var(--nav) + 74px);padding-bottom:clamp(56px,8vh,92px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(290px,.55fr);gap:7vw;align-items:end}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--red);font:700 .73rem/1 'JetBrains Mono',monospace;letter-spacing:.17em}.kicker:before{content:"";width:42px;height:1px;background:var(--red)}
+.hero h1{margin-top:25px;font-size:clamp(4rem,9.7vw,9.3rem);line-height:.84;letter-spacing:-.075em;font-weight:870;max-width:980px;word-break:keep-all}.hero h1 span{display:block}.hero h1 .stroke{-webkit-text-stroke:1px rgba(255,255,255,.45);color:transparent}.hero h1 .accent{color:var(--red)}
+.hero-sub{margin-top:30px;max-width:720px;color:rgba(255,255,255,.69);font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.8;word-break:keep-all}.hero-sub strong{color:#fff;font-weight:780}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}.btn{min-height:49px;padding:0 18px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:.84rem;font-weight:760;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#ff433b}.btn-outline{border-color:rgba(255,255,255,.24);background:rgba(8,8,8,.28);color:#fff}.btn-outline:hover{background:#fff;color:#080808}.btn svg{width:16px}
+.hero-side{border-left:1px solid var(--line);padding-left:26px;margin-bottom:5px}.hero-side-label{font:600 .67rem/1 'JetBrains Mono',monospace;color:rgba(255,255,255,.44);letter-spacing:.11em}.hero-side strong{display:block;margin-top:13px;font-size:1.25rem;line-height:1.4;letter-spacing:-.035em;word-break:keep-all}.hero-side p{margin-top:10px;color:rgba(255,255,255,.5);font-size:.88rem;line-height:1.65}.hero-meta{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.hero-meta div{padding:15px 0;border-bottom:1px solid var(--line)}.hero-meta div:nth-child(odd){padding-right:14px}.hero-meta div:nth-child(even){padding-left:14px;border-left:1px solid var(--line)}.hero-meta small{display:block;color:rgba(255,255,255,.36);font:500 .6rem/1 'JetBrains Mono',monospace;letter-spacing:.08em}.hero-meta b{display:block;margin-top:8px;font-size:.83rem;font-weight:700}
+.scroll-line{position:absolute;right:var(--pad);bottom:36px;display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.35);font:500 .62rem/1 'JetBrains Mono',monospace;letter-spacing:.1em}.scroll-line:before{content:"";width:44px;height:1px;background:rgba(255,255,255,.28)}
+
+/* ===== SIGNAL STRIP ===== */
+.signal{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0c0c0c;overflow:hidden}.signal-track{display:flex;width:max-content;animation:move 24s linear infinite}.signal span{padding:17px 28px;white-space:nowrap;font:700 .72rem/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:rgba(255,255,255,.52)}.signal b{color:var(--red)}@keyframes move{to{transform:translateX(-50%)}}
+
+/* ===== SHARED ===== */
+.section{padding:clamp(92px,9vw,150px) 0}.section.paper{background:var(--paper);color:#090909}.section.red-sec{background:var(--red);color:#090909}
+.section-head{display:grid;grid-template-columns:130px minmax(0,1fr) minmax(240px,390px);gap:28px;align-items:end;padding-bottom:22px;margin-bottom:clamp(46px,6vw,78px);border-bottom:1px solid var(--line)}.paper .section-head,.red-sec .section-head{border-color:var(--line-dark)}
+.section-code{color:var(--red);font:700 .7rem/1 'JetBrains Mono',monospace;letter-spacing:.08em}.red-sec .section-code{color:#090909}.section-title{font-size:clamp(2.4rem,5vw,4.8rem);line-height:.98;letter-spacing:-.06em;font-weight:850;word-break:keep-all}.section-note{color:rgba(255,255,255,.48);font-size:.9rem;line-height:1.65;text-align:right;word-break:keep-all}.paper .section-note,.red-sec .section-note{color:rgba(9,9,9,.52)}
+.edit-hint{font:600 .64rem/1.5 'JetBrains Mono',monospace;letter-spacing:.05em;color:var(--red)}.paper .edit-hint{color:var(--red)}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:clamp(46px,7vw,110px)}
+.about-lead{font-size:clamp(2rem,4vw,4.1rem);line-height:1.08;letter-spacing:-.052em;font-weight:820;word-break:keep-all}.about-lead span{color:var(--red)}
+.about-copy{margin-top:28px;max-width:800px;color:rgba(255,255,255,.6);font-size:1rem;line-height:1.85;word-break:keep-all}.about-copy strong{color:#fff}
+.about-spec{border-top:1px solid var(--line)}.spec-row{display:grid;grid-template-columns:115px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--line)}.spec-row small{color:rgba(255,255,255,.36);font:500 .66rem/1.5 'JetBrains Mono',monospace}.spec-row b{font-size:.92rem;line-height:1.5;font-weight:720}
+
+/* ===== WHAT WE DO ===== */
+.do-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-dark);border-left:1px solid var(--line-dark)}
+.do-card{min-height:360px;padding:28px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:.28s;background:transparent}.do-card:hover{background:#090909;color:#fff;transform:translateY(-4px)}.do-card:hover .do-no{color:var(--red)}.do-no{font:700 .7rem/1 'JetBrains Mono',monospace;color:rgba(9,9,9,.36)}.do-card h3{margin-top:65px;font-size:1.45rem;letter-spacing:-.035em;line-height:1.2}.do-card p{margin-top:14px;font-size:.9rem;line-height:1.72;opacity:.64;word-break:keep-all}.do-icon{font:700 3.8rem/1 'JetBrains Mono',monospace;letter-spacing:-.08em;color:rgba(9,9,9,.06);position:absolute;right:18px;bottom:14px}.do-card:hover .do-icon{color:rgba(255,255,255,.05)}
+
+/* ===== BUILD PROCESS ===== */
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}.process-step{position:relative;padding:28px 24px 34px;border-right:1px solid var(--line);min-height:310px}.process-step:first-child{border-left:1px solid var(--line)}.process-step .num{font:700 .7rem/1 'JetBrains Mono',monospace;color:var(--red)}.process-step h3{margin-top:54px;font-size:1.25rem;letter-spacing:-.035em}.process-step p{margin-top:13px;color:rgba(255,255,255,.53);font-size:.87rem;line-height:1.7;word-break:keep-all}.process-step:after{content:"→";position:absolute;right:-11px;top:27px;z-index:2;width:21px;height:21px;display:grid;place-items:center;background:var(--bg);color:rgba(255,255,255,.28);font:500 .8rem/1 'JetBrains Mono',monospace}.process-step:last-child:after{display:none}
+
+/* ===== ROBOT SHOWCASE ===== */
+.showcase{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);border:1px solid var(--line-dark);min-height:640px;background:#fff}
+.showcase-media{position:relative;overflow:hidden;background:#111;color:#fff;min-height:560px}.showcase-media img,.showcase-media video{width:100%;height:100%;object-fit:cover}.showcase-placeholder{position:absolute;inset:0;display:flex;align-items:flex-end;padding:34px;background:linear-gradient(145deg,#181818,#090909 70%);overflow:hidden}.showcase-placeholder:before{content:"";position:absolute;inset:-20%;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:46px 46px;transform:rotate(-8deg)}.showcase-placeholder .placeholder-copy{position:relative;z-index:2}.placeholder-badge{display:inline-flex;border:1px solid rgba(255,255,255,.2);padding:7px 10px;font:600 .65rem/1 'JetBrains Mono',monospace;color:rgba(255,255,255,.58)}.placeholder-copy strong{display:block;margin-top:16px;font-size:clamp(2rem,4vw,4.3rem);line-height:.94;letter-spacing:-.055em}.placeholder-copy p{margin-top:13px;color:rgba(255,255,255,.55);font-size:.9rem}.showcase-panel{padding:clamp(28px,4vw,50px);display:flex;flex-direction:column}.showcase-panel .eyebrow{font:700 .67rem/1 'JetBrains Mono',monospace;color:var(--red);letter-spacing:.09em}.showcase-panel h3{margin-top:25px;font-size:clamp(2rem,3vw,3.2rem);line-height:1.02;letter-spacing:-.055em}.showcase-panel>p{margin-top:18px;color:rgba(9,9,9,.58);line-height:1.75;font-size:.93rem}.robot-tabs{margin-top:auto;padding-top:38px}.robot-tab{border-top:1px solid var(--line-dark);padding:17px 0;display:grid;grid-template-columns:78px 1fr;gap:18px}.robot-tab:last-child{border-bottom:1px solid var(--line-dark)}.robot-tab small{font:600 .63rem/1.5 'JetBrains Mono',monospace;color:rgba(9,9,9,.36)}.robot-tab b{font-size:.9rem;line-height:1.5}
+
+/* ===== CODE ===== */
+.code-layout{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(36px,6vw,90px);align-items:center}
+.code-copy h3{font-size:clamp(2.25rem,4.7vw,4.7rem);line-height:.98;letter-spacing:-.06em;word-break:keep-all}.code-copy p{margin-top:24px;max-width:620px;color:rgba(255,255,255,.56);line-height:1.85;word-break:keep-all}.code-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}.code-tags span{border:1px solid var(--line);padding:8px 10px;font:600 .64rem/1 'JetBrains Mono',monospace;color:rgba(255,255,255,.58)}
+.code-window{border:1px solid var(--line);background:#0c0c0c;box-shadow:0 28px 80px rgba(0,0,0,.22)}.code-top{height:46px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 16px}.dots{display:flex;gap:7px}.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18)}.code-top span{font:500 .62rem/1 'JetBrains Mono',monospace;color:rgba(255,255,255,.34)}
+.code-body{padding:26px;overflow:auto}.code-body pre{font:500 .78rem/1.8 'JetBrains Mono',monospace;color:#c7c7c0;min-width:520px}.code-body .c1{color:#ef756f}.code-body .c2{color:#e6cd7f}.code-body .c3{color:#7bc9b1}.code-body .cm{color:#666}
+
+/* ===== COMPETITION ===== */
+.comp-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:clamp(42px,7vw,110px);align-items:start}.comp-lead{font-size:clamp(2.3rem,4.6vw,4.6rem);line-height:1.01;letter-spacing:-.06em;font-weight:850;word-break:keep-all}.comp-lead span{display:block;color:var(--red)}.comp-copy{margin-top:24px;max-width:720px;color:rgba(255,255,255,.55);font-size:.98rem;line-height:1.82}.comp-list{border-top:1px solid var(--line)}.comp-item{display:grid;grid-template-columns:88px 1fr auto;gap:16px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}.comp-item .date{font:600 .64rem/1.4 'JetBrains Mono',monospace;color:rgba(255,255,255,.36)}.comp-item b{font-size:.96rem}.comp-item em{font-style:normal;font:600 .65rem/1 'JetBrains Mono',monospace;color:var(--red)}
+
+/* ===== MEDIA ===== */
+.media-grid{display:grid;grid-template-columns:1.18fr .82fr;grid-template-rows:auto auto;gap:14px}.media-card{position:relative;overflow:hidden;background:#111;color:#fff;min-height:300px}.media-card.big{grid-row:span 2;min-height:620px}.media-card img,.media-card video{width:100%;height:100%;object-fit:cover}.media-placeholder{position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#181818,#0b0b0b)}.media-placeholder:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:38px 38px}.media-placeholder>*{position:relative;z-index:2}.media-placeholder .slot{align-self:flex-start;border:1px solid rgba(255,255,255,.2);padding:7px 9px;font:600 .62rem/1 'JetBrains Mono',monospace;color:rgba(255,255,255,.52)}.media-placeholder strong{font-size:1.4rem;letter-spacing:-.035em}.media-placeholder p{margin-top:7px;color:rgba(255,255,255,.48);font-size:.82rem}.play-mark{position:absolute;right:22px;top:22px;z-index:3;width:46px;height:46px;border:1px solid rgba(255,255,255,.28);border-radius:50%;display:grid;place-items:center;font-size:.9rem}
+
+/* ===== ROLES ===== */
+.roles-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-dark);border-left:1px solid var(--line-dark)}.role-card{min-height:290px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);padding:26px;display:flex;flex-direction:column}.role-card .role-code{font:700 .67rem/1 'JetBrains Mono',monospace;color:var(--red)}.role-card h3{margin-top:44px;font-size:1.35rem;letter-spacing:-.035em}.role-card p{margin-top:12px;color:rgba(9,9,9,.56);font-size:.88rem;line-height:1.72}.role-card small{margin-top:auto;padding-top:28px;font:600 .62rem/1.5 'JetBrains Mono',monospace;color:rgba(9,9,9,.38)}
+
+/* ===== JOIN / QR ===== */
+.join{padding:clamp(88px,10vw,150px) 0;background:var(--red);color:#090909}.join-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.65fr);gap:8vw;align-items:center}.join-kicker{font:700 .68rem/1 'JetBrains Mono',monospace;letter-spacing:.1em}.join h2{margin-top:20px;font-size:clamp(3.2rem,7vw,7.4rem);line-height:.88;letter-spacing:-.075em;word-break:keep-all}.join p{margin-top:24px;max-width:720px;color:rgba(9,9,9,.65);line-height:1.78}.join-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}.btn-black{background:#090909;color:#fff}.btn-white{background:#fff;color:#090909}
+.qr-box{background:#fff;padding:22px;box-shadow:0 25px 70px rgba(80,0,0,.18)}.qr-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1px solid rgba(9,9,9,.12)}.qr-head b{font-size:.92rem}.qr-head span{font:600 .6rem/1 'JetBrains Mono',monospace;color:rgba(9,9,9,.38)}#qr{width:min(100%,280px);aspect-ratio:1;margin:24px auto;display:grid;place-items:center}#qr img,#qr canvas{max-width:100%!important;height:auto!important}.qr-url{border-top:1px solid rgba(9,9,9,.12);padding-top:16px}.qr-url small{display:block;font:600 .61rem/1 'JetBrains Mono',monospace;color:rgba(9,9,9,.38)}.qr-url input{width:100%;margin-top:9px;border:1px solid rgba(9,9,9,.15);background:#f5f5f2;padding:11px 12px;font-size:.78rem}.qr-url button{margin-top:8px;width:100%;border:0;background:#090909;color:#fff;padding:11px;font-size:.76rem;font-weight:750}
+
+/* ===== FOOTER ===== */
+.footer{background:#080808;padding:48px 0 34px;border-top:1px solid var(--line)}.footer-top{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}.footer-brand{font-size:clamp(2.5rem,5vw,5.2rem);font-weight:870;line-height:.9;letter-spacing:-.07em}.footer-brand span{color:var(--red)}.footer-links{display:flex;gap:22px;flex-wrap:wrap;font:600 .67rem/1 'JetBrains Mono',monospace;color:rgba(255,255,255,.48)}.footer-links a:hover{color:#fff}.footer-bottom{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:rgba(255,255,255,.3);font:500 .6rem/1.5 'JetBrains Mono',monospace}
+
+/* ===== QR MODAL ===== */
+.modal{position:fixed;z-index:3000;inset:0;background:rgba(0,0,0,.78);display:none;place-items:center;padding:22px;backdrop-filter:blur(12px)}.modal.open{display:grid}.modal-card{width:min(430px,100%);background:#fff;color:#090909;padding:22px;position:relative}.modal-close{position:absolute;right:14px;top:14px;width:34px;height:34px;border:1px solid rgba(9,9,9,.15);background:#fff}.modal-card h3{font-size:1.25rem;margin-top:6px}.modal-card p{margin-top:8px;color:rgba(9,9,9,.56);font-size:.84rem;line-height:1.55}.modal-qr{margin:22px auto 0;width:min(280px,85vw);aspect-ratio:1;display:grid;place-items:center}.modal-qr img,.modal-qr canvas{max-width:100%!important;height:auto!important}
+
+@media(max-width:1120px){
+  .nav-links{display:none}.menu-btn{display:inline-flex}.hero-grid{grid-template-columns:1fr}.hero-side{max-width:640px;border-left:0;border-top:1px solid var(--line);padding:24px 0 0}.section-head{grid-template-columns:110px 1fr}.section-note{grid-column:2;text-align:left}.do-grid,.roles-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(3,1fr)}.process-step:nth-child(4),.process-step:nth-child(5){border-top:1px solid var(--line)}.showcase,.code-layout,.comp-layout{grid-template-columns:1fr}.showcase-panel{min-height:460px}.media-grid{grid-template-columns:1fr 1fr}.join-grid{grid-template-columns:1fr}.qr-box{max-width:440px}
+}
+@media(max-width:720px){
+  :root{--nav:66px;--pad:20px}.brand-copy small{display:none}.brand-mark{width:35px;height:35px}.hero-content{padding-top:118px}.hero h1{font-size:clamp(4rem,18vw,6rem)}.hero-side{margin-top:10px}.scroll-line{display:none}.section{padding:82px 0}.section-head{grid-template-columns:1fr;gap:12px}.section-note{grid-column:1}.section-title{font-size:2.55rem}.about-grid{grid-template-columns:1fr}.do-grid,.roles-grid{grid-template-columns:1fr}.do-card{min-height:270px}.process-grid{grid-template-columns:1fr}.process-step,.process-step:first-child{border-left:1px solid var(--line);border-top:0}.process-step{border-bottom:1px solid var(--line);min-height:230px}.process-step:after{display:none}.showcase{min-height:0}.showcase-media{min-height:440px}.showcase-panel{min-height:430px}.code-body{padding:18px}.media-grid{grid-template-columns:1fr;grid-template-rows:auto}.media-card.big{grid-row:auto;min-height:440px}.media-card{min-height:300px}.join{padding:80px 0}.join h2{font-size:3.8rem}.footer-top,.footer-bottom{flex-direction:column;align-items:flex-start}.footer-links{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+  TC ROBOTICS 홍보 사이트 기초 틀
+  ---------------------------------------------------------
+  ★ 가장 쉽게 수정하는 방법
+  1) 이 파일 맨 아래의 SITE_DATA만 수정하면 주요 문구가 바뀝니다.
+  2) 사진/영상 경로도 SITE_DATA의 media 부분에서 바꿉니다.
+  3) 실제 배포 주소를 SITE_DATA.siteUrl에 넣으면 QR에 반영됩니다.
+
+  권장 폴더 구조
+  /index.html
+  /assets/images/hero.jpg
+  /assets/images/robot-01.jpg
+  /assets/images/activity-01.jpg
+  /assets/images/activity-02.jpg
+  /assets/videos/hero.mp4
+  /assets/videos/match-01.mp4
+========================================================= -->
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="TC Robotics 홈">
+      <span class="brand-mark">T<b>C</b></span>
+      <span class="brand-copy"><strong data-text="teamName">TC ROBOTICS</strong><small>WOONCHUN HIGH SCHOOL</small></span>
+    </a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#about">TEAM</a><a href="#build">BUILD</a><a href="#robot">ROBOT</a><a href="#code">CODE</a><a href="#media">MEDIA</a><a href="#join">JOIN</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-btn" id="qrOpen" type="button" aria-label="QR 코드 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h2v2h-2zM19 15h2v6h-2zM15 19h2v2h-2z"/></svg><span>QR</span></button>
+      <button class="nav-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav"><a href="#about">TEAM</a><a href="#build">BUILD</a><a href="#robot">ROBOT</a><a href="#code">CODE</a><a href="#media">MEDIA</a><a href="#join">JOIN</a></div>
+
+<main id="top">
+  <!-- HERO: heroImage 또는 heroVideo를 SITE_DATA에서 지정하면 자동으로 교체됩니다. -->
+  <section class="hero">
+    <div class="hero-media" id="heroMedia">
+      <div class="hero-media-placeholder">
+        <div class="robot-wire" aria-hidden="true"><div class="frame"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="arm"></div></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker" data-text="heroKicker">COMPETITION ROBOTICS TEAM</div>
+          <h1><span>BUILD.</span><span class="stroke">CODE.</span><span class="accent">COMPETE.</span></h1>
+          <p class="hero-sub" data-html="heroCopy">기계 설계부터 로봇 제어 코드까지. <strong>직접 만든 로봇으로 경기장에 서는 팀.</strong> 이곳에 동아리의 핵심 소개 문장을 넣어주세요.</p>
+          <div class="hero-cta">
+            <a class="btn btn-red" href="#about">팀 알아보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
+            <a class="btn btn-outline" href="#media">사진 · 영상 보기</a>
+          </div>
+        </div>
+        <aside class="hero-side">
+          <div class="hero-side-label">TEAM STATUS / EDIT LATER</div>
+          <strong data-text="heroSideTitle">[이번 시즌 한 줄 목표]</strong>
+          <p data-text="heroSideCopy">예: 새로운 로봇을 설계하고, 자율주행과 드라이버 제어를 완성해 대회에 출전합니다.</p>
+          <div class="hero-meta">
+            <div><small>TEAM</small><b data-text="teamCode">23020 / 24906</b></div>
+            <div><small>SEASON</small><b data-text="season">2026</b></div>
+            <div><small>FOCUS</small><b>MECH + CODE</b></div>
+            <div><small>STATUS</small><b data-text="status">RECRUITING</b></div>
+          </div>
+        </aside>
+      </div>
+      <div class="scroll-line">SCROLL TO BUILD</div>
+    </div>
+  </section>
+
+  <div class="signal" aria-hidden="true"><div class="signal-track"><span><b>01</b> DESIGN</span><span><b>02</b> CAD</span><span><b>03</b> BUILD</span><span><b>04</b> PROGRAM</span><span><b>05</b> TEST</span><span><b>06</b> COMPETE</span><span><b>01</b> DESIGN</span><span><b>02</b> CAD</span><span><b>03</b> BUILD</span><span><b>04</b> PROGRAM</span><span><b>05</b> TEST</span><span><b>06</b> COMPETE</span></div></div>
+
+  <!-- TEAM 소개 -->
+  <section class="section" id="about">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">01 / TEAM</span><h2 class="section-title">로봇을 만드는<br>사람들.</h2><p class="section-note">이 부분에는 동아리의 성격, 활동 목표, 대회 출전 방향을 3~4문장 정도로 적으면 좋습니다.</p></header>
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="edit-hint">[EDIT] 동아리 소개 문장</div>
+          <p class="about-lead" data-html="aboutLead">설계하고, 조립하고, 코딩하고, <span>경기에서 검증합니다.</span></p>
+          <p class="about-copy" data-html="aboutCopy">TC는 로봇 대회 출전을 목표로 기계 설계·제작과 로봇 프로그래밍을 함께 진행하는 동아리입니다. <strong>여기에 실제 동아리의 역사, 분위기, 목표를 나중에 적어주세요.</strong></p>
+        </div>
+        <div class="about-spec reveal">
+          <div class="spec-row"><small>SCHOOL</small><b data-text="schoolName">운천고등학교</b></div>
+          <div class="spec-row"><small>TEAM</small><b data-text="teamName">TC ROBOTICS</b></div>
+          <div class="spec-row"><small>TEAM CODE</small><b data-text="teamCode">23020 / 24906</b></div>
+          <div class="spec-row"><small>COMPETITION</small><b data-text="competitionName">[출전 대회명 입력]</b></div>
+          <div class="spec-row"><small>WORKSPACE</small><b data-text="workspace">[활동 장소 입력]</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 핵심 활동 -->
+  <section class="section paper" id="build">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">02 / WHAT WE DO</span><h2 class="section-title">무엇을 하게 될까.</h2><p class="section-note">아래 네 칸은 동아리의 실제 활동에 맞게 자유롭게 바꿀 수 있습니다.</p></header>
+      <div class="do-grid reveal">
+        <article class="do-card"><span class="do-no">01 / MECHANICAL</span><div><h3 data-text="activity1Title">로봇 설계 · 제작</h3><p data-text="activity1Copy">프레임, 구동부, 게임 메커니즘을 설계하고 실제 부품으로 제작합니다.</p></div><span class="do-icon">M</span></article>
+        <article class="do-card"><span class="do-no">02 / SOFTWARE</span><div><h3 data-text="activity2Title">로봇 프로그래밍</h3><p data-text="activity2Copy">모터와 센서를 제어하고 자율주행 및 경기용 제어 코드를 작성합니다.</p></div><span class="do-icon">C</span></article>
+        <article class="do-card"><span class="do-no">03 / TEST</span><div><h3 data-text="activity3Title">테스트 · 개선</h3><p data-text="activity3Copy">반복 테스트를 통해 문제를 찾고 기계 구조와 코드를 함께 수정합니다.</p></div><span class="do-icon">T</span></article>
+        <article class="do-card"><span class="do-no">04 / MATCH</span><div><h3 data-text="activity4Title">대회 · 경기 전략</h3><p data-text="activity4Copy">실제 경기 규칙을 분석하고 로봇 운용과 팀 전략을 준비합니다.</p></div><span class="do-icon">R</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 제작 과정 -->
+  <section class="section">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">03 / PROCESS</span><h2 class="section-title">아이디어가<br>로봇이 되는 과정.</h2><p class="section-note">제작 과정은 시즌마다 바뀔 수 있으니 나중에 실제 팀 작업 흐름에 맞춰 수정하세요.</p></header>
+      <div class="process-grid reveal">
+        <article class="process-step"><span class="num">STEP 01</span><h3>경기 분석</h3><p>규칙과 득점 구조를 읽고 어떤 로봇이 필요한지 정합니다.</p></article>
+        <article class="process-step"><span class="num">STEP 02</span><h3>설계</h3><p>아이디어를 스케치·CAD 등으로 구체화하고 구조를 결정합니다.</p></article>
+        <article class="process-step"><span class="num">STEP 03</span><h3>제작</h3><p>부품을 조립하고 구동부와 메커니즘을 실제 로봇으로 만듭니다.</p></article>
+        <article class="process-step"><span class="num">STEP 04</span><h3>프로그래밍</h3><p>센서와 모터 제어, 자율주행, 드라이버 컨트롤을 구현합니다.</p></article>
+        <article class="process-step"><span class="num">STEP 05</span><h3>테스트 · 경기</h3><p>실전처럼 반복해서 테스트하고 문제를 수정해 경기장에 올립니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 대표 로봇: 이미지/영상 삽입 가능 -->
+  <section class="section paper" id="robot">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">04 / ROBOT</span><h2 class="section-title">우리의 로봇.</h2><p class="section-note">대표 로봇 사진이나 짧은 영상을 넣는 자리입니다. 아직 자료가 없어도 레이아웃은 유지됩니다.</p></header>
+      <div class="showcase reveal">
+        <div class="showcase-media" id="robotMedia"><div class="showcase-placeholder"><div class="placeholder-copy"><span class="placeholder-badge">MEDIA SLOT / 16:10</span><strong>ROBOT<br>PHOTO / VIDEO</strong><p>나중에 대표 로봇 사진 또는 영상을 이곳에 연결하세요.</p></div></div></div>
+        <div class="showcase-panel">
+          <div class="eyebrow">ROBOT PROFILE / EDIT LATER</div>
+          <h3 data-text="robotName">[로봇 이름]</h3>
+          <p data-text="robotCopy">로봇의 특징, 맡은 경기 역할, 가장 중요했던 설계 포인트 등을 3~4문장으로 소개하는 자리입니다.</p>
+          <div class="robot-tabs">
+            <div class="robot-tab"><small>DRIVE</small><b data-text="robotDrive">[구동 방식]</b></div>
+            <div class="robot-tab"><small>MECHANISM</small><b data-text="robotMechanism">[주요 메커니즘]</b></div>
+            <div class="robot-tab"><small>CONTROL</small><b data-text="robotControl">[제어 방식 / 센서]</b></div>
+            <div class="robot-tab"><small>SEASON</small><b data-text="season">2026</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 코드/제어 -->
+  <section class="section" id="code">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">05 / CONTROL</span><h2 class="section-title">기계가 움직이게<br>만드는 코드.</h2><p class="section-note">실제 코드를 공개하고 싶다면 오른쪽 예시 코드를 교체해 사용할 수 있습니다.</p></header>
+      <div class="code-layout">
+        <div class="code-copy reveal"><div class="edit-hint">[EDIT] 코딩 활동 설명</div><h3 data-html="codeTitle">센서를 읽고,<br>모터를 제어하고,<br><span class="red">경기를 자동화합니다.</span></h3><p data-text="codeCopy">이곳에는 동아리에서 사용하는 언어, 제어 시스템, 자율주행 방식 등을 나중에 실제 활동에 맞게 적어주세요.</p><div class="code-tags"><span>ROBOT CONTROL</span><span>AUTONOMOUS</span><span>SENSOR</span><span>DRIVE</span></div></div>
+        <div class="code-window reveal">
+          <div class="code-top"><div class="dots"><i></i><i></i><i></i></div><span>robot_control.java / SAMPLE</span></div>
+          <div class="code-body"><pre><span class="cm">// SAMPLE CODE — 실제 팀 코드로 나중에 교체하세요.</span>
+<span class="c1">public</span> <span class="c1">void</span> runOpMode() {
+    <span class="c2">robot</span>.init(hardwareMap);
+
+    waitForStart();
+
+    <span class="c1">while</span> (opModeIsActive()) {
+        <span class="c3">double</span> drive = -gamepad1.left_stick_y;
+        <span class="c3">double</span> turn  =  gamepad1.right_stick_x;
+
+        <span class="c2">robot</span>.drive(drive, turn);
+        telemetry.addData(<span class="c3">"status"</span>, <span class="c3">"running"</span>);
+        telemetry.update();
+    }
+}</pre></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 대회 / 시즌 -->
+  <section class="section" id="competition">
+    <div class="container">
+      <div class="comp-layout">
+        <div class="reveal"><div class="section-code">06 / COMPETITION</div><div class="comp-lead" style="margin-top:24px">만든 로봇은<span>경기장에서 증명합니다.</span></div><p class="comp-copy" data-text="competitionCopy">이곳에는 FTC 등 실제로 참가하는 대회, 시즌 목표, 경기 경험 등을 나중에 적어주세요. 아직 확정되지 않았다면 일정 카드만 남겨두어도 됩니다.</p></div>
+        <div class="comp-list reveal">
+          <div class="comp-item"><span class="date">SCHEDULE 01</span><b data-text="schedule1">[대회 / 행사 일정 입력]</b><em>EDIT</em></div>
+          <div class="comp-item"><span class="date">SCHEDULE 02</span><b data-text="schedule2">[대회 / 행사 일정 입력]</b><em>EDIT</em></div>
+          <div class="comp-item"><span class="date">SCHEDULE 03</span><b data-text="schedule3">[교내 시연 / 설명회 일정]</b><em>EDIT</em></div>
+          <div class="comp-item"><span class="date">SEASON GOAL</span><b data-text="seasonGoal">[이번 시즌 목표 입력]</b><em>GOAL</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 사진/영상 자료 -->
+  <section class="section paper" id="media">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">07 / MEDIA</span><h2 class="section-title">작업실과<br>경기장의 기록.</h2><p class="section-note">여기는 이후에 직접 찍은 사진과 경기 영상을 넣기 위해 비워 둔 미디어 섹션입니다.</p></header>
+      <div class="media-grid reveal">
+        <article class="media-card big" id="media1"><div class="media-placeholder"><span class="slot">PHOTO SLOT 01 / PORTRAIT</span><div><strong>대표 제작 사진</strong><p>로봇 제작 과정이나 팀 작업 장면을 추천합니다.</p></div></div></article>
+        <article class="media-card" id="media2"><div class="media-placeholder"><span class="slot">VIDEO SLOT 01 / 16:9</span><div><strong>경기 / 테스트 영상</strong><p>짧은 경기 영상 또는 테스트 영상을 연결할 수 있습니다.</p></div></div><span class="play-mark">▶</span></article>
+        <article class="media-card" id="media3"><div class="media-placeholder"><span class="slot">PHOTO SLOT 02 / 16:9</span><div><strong>로봇 디테일</strong><p>메커니즘이나 전장·센서 부분의 사진을 추천합니다.</p></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 역할 소개 -->
+  <section class="section paper" id="roles" style="padding-top:0">
+    <div class="container">
+      <header class="section-head reveal"><span class="section-code">08 / ROLES</span><h2 class="section-title">각자 다른 역할로<br>한 대의 로봇을 만듭니다.</h2><p class="section-note">실제 팀 운영 방식에 맞게 역할 이름과 설명을 바꾸세요. 필요하면 카드를 더 추가해도 됩니다.</p></header>
+      <div class="roles-grid reveal">
+        <article class="role-card"><span class="role-code">MECH</span><h3>기계 · 제작</h3><p>구조 설계, 부품 조립, 메커니즘 제작과 개선을 담당합니다.</p><small>ROLE TEXT / EDIT LATER</small></article>
+        <article class="role-card"><span class="role-code">CODE</span><h3>프로그래밍</h3><p>로봇 제어, 센서 처리, 자율주행과 경기용 코드를 담당합니다.</p><small>ROLE TEXT / EDIT LATER</small></article>
+        <article class="role-card"><span class="role-code">DRIVE</span><h3>드라이브 · 전략</h3><p>경기 운영, 드라이빙, 얼라이언스 전략 등을 준비합니다.</p><small>ROLE TEXT / EDIT LATER</small></article>
+        <article class="role-card"><span class="role-code">MEDIA</span><h3>기록 · 홍보</h3><p>사진, 영상, 디자인, 활동 기록과 팀 홍보를 담당합니다.</p><small>ROLE TEXT / EDIT LATER</small></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 지원 / QR -->
+  <section class="join" id="join">
+    <div class="container join-grid">
+      <div class="reveal"><div class="join-kicker">JOIN TC ROBOTICS</div><h2>로봇을<br>직접 만들고<br>싶다면.</h2><p data-text="joinCopy">지원 대상, 모집 시기, 지원 방법, 필요한 경험 여부 등을 나중에 이곳에 적어주세요. QR은 실제 사이트 주소를 넣으면 자동으로 생성됩니다.</p><div class="join-actions"><a class="btn btn-black" id="applyLink" href="#">지원 링크 [추후 입력]</a><button class="btn btn-white" id="copyLink" type="button">사이트 주소 복사</button></div></div>
+      <aside class="qr-box reveal"><div class="qr-head"><b>SCAN TO VISIT</b><span>TC ROBOTICS / QR</span></div><div id="qr"></div><div class="qr-url"><small>WEBSITE URL / QR TARGET</small><input id="qrInput" type="url" placeholder="https://example.com"><button id="qrUpdate" type="button">이 주소로 QR 만들기</button></div></aside>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand">TC<span>.</span><br>ROBOTICS</div><div class="footer-links"><a href="#about">TEAM</a><a href="#robot">ROBOT</a><a href="#code">CODE</a><a href="#media">MEDIA</a><a id="instagramLink" href="#">INSTAGRAM</a><a id="emailLink" href="#">EMAIL</a></div></div><div class="footer-bottom"><span data-text="footerText">© 2026 TC ROBOTICS · WOONCHUN HIGH SCHOOL</span><span>BUILD / CODE / COMPETE</span></div></div></footer>
+
+<div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle"><div class="modal-card"><button class="modal-close" id="qrClose" aria-label="닫기">×</button><h3 id="qrModalTitle">TC ROBOTICS</h3><p>휴대폰 카메라로 QR을 찍으면 사이트로 이동합니다.</p><div class="modal-qr" id="modalQr"></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+/* =========================================================
+   ★★★ 여기가 가장 중요한 수정 영역입니다. ★★★
+   아래 SITE_DATA 값만 바꾸면 주요 문구/이미지/영상/링크가 바뀝니다.
+
+   사진 예시: heroImage: "assets/images/hero.jpg"
+   영상 예시: heroVideo: "assets/videos/hero.mp4"
+   비워두면 지금처럼 플레이스홀더가 보입니다.
+========================================================= */
+const SITE_DATA = {
+  schoolName: "운천고등학교",
+  teamName: "TC ROBOTICS",
+  teamCode: "23020 / 24906",
+  season: "2026",
+  status: "RECRUITING",
+  competitionName: "[출전 대회명 입력]",
+  workspace: "[활동 장소 입력]",
+
+  heroKicker: "COMPETITION ROBOTICS TEAM",
+  heroCopy: '기계 설계부터 로봇 제어 코드까지. <strong>직접 만든 로봇으로 경기장에 서는 팀.</strong> 이곳에 동아리의 핵심 소개 문장을 넣어주세요.',
+  heroSideTitle: "[이번 시즌 한 줄 목표]",
+  heroSideCopy: "예: 새로운 로봇을 설계하고, 자율주행과 드라이버 제어를 완성해 대회에 출전합니다.",
+
+  aboutLead: '설계하고, 조립하고, 코딩하고, <span>경기에서 검증합니다.</span>',
+  aboutCopy: 'TC는 로봇 대회 출전을 목표로 기계 설계·제작과 로봇 프로그래밍을 함께 진행하는 동아리입니다. <strong>여기에 실제 동아리의 역사, 분위기, 목표를 나중에 적어주세요.</strong>',
+
+  activity1Title: "로봇 설계 · 제작",
+  activity1Copy: "프레임, 구동부, 게임 메커니즘을 설계하고 실제 부품으로 제작합니다.",
+  activity2Title: "로봇 프로그래밍",
+  activity2Copy: "모터와 센서를 제어하고 자율주행 및 경기용 제어 코드를 작성합니다.",
+  activity3Title: "테스트 · 개선",
+  activity3Copy: "반복 테스트를 통해 문제를 찾고 기계 구조와 코드를 함께 수정합니다.",
+  activity4Title: "대회 · 경기 전략",
+  activity4Copy: "실제 경기 규칙을 분석하고 로봇 운용과 팀 전략을 준비합니다.",
+
+  robotName: "[로봇 이름]",
+  robotCopy: "로봇의 특징, 맡은 경기 역할, 가장 중요했던 설계 포인트 등을 3~4문장으로 소개하는 자리입니다.",
+  robotDrive: "[구동 방식]",
+  robotMechanism: "[주요 메커니즘]",
+  robotControl: "[제어 방식 / 센서]",
+
+  codeTitle: '센서를 읽고,<br>모터를 제어하고,<br><span class="red">경기를 자동화합니다.</span>',
+  codeCopy: "이곳에는 동아리에서 사용하는 언어, 제어 시스템, 자율주행 방식 등을 나중에 실제 활동에 맞게 적어주세요.",
+
+  competitionCopy: "이곳에는 FTC 등 실제로 참가하는 대회, 시즌 목표, 경기 경험 등을 나중에 적어주세요. 아직 확정되지 않았다면 일정 카드만 남겨두어도 됩니다.",
+  schedule1: "[대회 / 행사 일정 입력]",
+  schedule2: "[대회 / 행사 일정 입력]",
+  schedule3: "[교내 시연 / 설명회 일정]",
+  seasonGoal: "[이번 시즌 목표 입력]",
+
+  joinCopy: "지원 대상, 모집 시기, 지원 방법, 필요한 경험 여부 등을 나중에 이곳에 적어주세요. QR은 실제 사이트 주소를 넣으면 자동으로 생성됩니다.",
+  footerText: "© 2026 TC ROBOTICS · WOONCHUN HIGH SCHOOL",
+
+  /* 실제 웹 주소가 생기면 입력하세요. 비워두면 현재 페이지 주소를 사용합니다. */
+  siteUrl: "",
+  applyUrl: "#",
+  instagramUrl: "#",
+  email: "",
+
+  /* ===== 이미지 / 영상 자료 ===== */
+  media: {
+    heroImage: "",     // 예: "assets/images/hero.jpg"
+    heroVideo: "",     // 예: "assets/videos/hero.mp4" (있으면 이미지보다 우선)
+    robotImage: "",    // 예: "assets/images/robot-01.jpg"
+    robotVideo: "",    // 예: "assets/videos/robot-01.mp4" (있으면 이미지보다 우선)
+    media1Image: "",   // 제작 사진
+    media2Video: "",   // 경기/테스트 영상
+    media2Poster: "",  // 영상 썸네일(선택)
+    media3Image: ""    // 로봇 디테일 사진
+  }
+};
+
+/* ===== 아래는 기능 코드입니다. 일반적으로 수정할 필요 없습니다. ===== */
+const $ = (s, ctx=document) => ctx.querySelector(s);
+const $$ = (s, ctx=document) => [...ctx.querySelectorAll(s)];
+
+function fillText(){
+  $$('[data-text]').forEach(el => { const k=el.dataset.text; if(SITE_DATA[k] !== undefined) el.textContent=SITE_DATA[k]; });
+  $$('[data-html]').forEach(el => { const k=el.dataset.html; if(SITE_DATA[k] !== undefined) el.innerHTML=SITE_DATA[k]; });
+  $('#applyLink').href = SITE_DATA.applyUrl || '#';
+  $('#instagramLink').href = SITE_DATA.instagramUrl || '#';
+  $('#emailLink').href = SITE_DATA.email ? `mailto:${SITE_DATA.email}` : '#';
+}
+
+function mountMedia(targetId, {video='', image='', poster='', controls=false, autoplay=false}={}){
+  const target = document.getElementById(targetId);
+  if(!target) return;
+  if(video){
+    target.innerHTML = `<video ${autoplay?'autoplay muted loop playsinline':''} ${controls?'controls':''} ${poster?`poster="${poster}"`:''}><source src="${video}"></video>`;
+  }else if(image){
+    target.innerHTML = `<img src="${image}" alt="TC Robotics 활동 이미지" loading="lazy">`;
+  }
+}
+function mountAllMedia(){
+  const m=SITE_DATA.media;
+  if(m.heroVideo){ $('#heroMedia').innerHTML=`<video autoplay muted loop playsinline><source src="${m.heroVideo}"></video>`; }
+  else if(m.heroImage){ $('#heroMedia').innerHTML=`<img src="${m.heroImage}" alt="TC Robotics 대표 이미지">`; }
+  mountMedia('robotMedia',{video:m.robotVideo,image:m.robotImage,controls:!!m.robotVideo});
+  mountMedia('media1',{image:m.media1Image});
+  mountMedia('media2',{video:m.media2Video,poster:m.media2Poster,controls:!!m.media2Video});
+  if(m.media2Video){ const p=$('.play-mark',$('#media2')); if(p) p.remove(); }
+  mountMedia('media3',{image:m.media3Image});
+}
+
+let qrMain, qrModal;
+function currentQrUrl(){
+  if(SITE_DATA.siteUrl) return SITE_DATA.siteUrl;
+  if(location.protocol === 'http:' || location.protocol === 'https:') return location.href.split('#')[0];
+  return 'https://YOUR-SITE-URL.example';
+}
+function makeQr(url){
+  const main=$('#qr'), modal=$('#modalQr'); main.innerHTML=''; modal.innerHTML='';
+  if(typeof QRCode === 'undefined'){
+    main.innerHTML='<small style="color:#666;text-align:center">QR 라이브러리를 불러오려면 인터넷 연결이 필요합니다.</small>';
+    return;
+  }
+  qrMain=new QRCode(main,{text:url,width:280,height:280,colorDark:'#090909',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  qrModal=new QRCode(modal,{text:url,width:280,height:280,colorDark:'#090909',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+  $('#qrInput').value=url;
+}
+
+fillText(); mountAllMedia(); makeQr(currentQrUrl());
+
+const nav=$('#nav'); addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+const menuBtn=$('#menuBtn'), mobileNav=$('#mobileNav'); menuBtn.addEventListener('click',()=>mobileNav.classList.toggle('open')); $$('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>mobileNav.classList.remove('open')));
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');observer.unobserve(e.target)}}),{threshold:.12}); $$('.reveal').forEach(el=>observer.observe(el));
+
+$('#qrUpdate').addEventListener('click',()=>{ const v=$('#qrInput').value.trim(); if(v) makeQr(v); });
+$('#copyLink').addEventListener('click',async()=>{ const u=$('#qrInput').value.trim()||currentQrUrl(); try{await navigator.clipboard.writeText(u); $('#copyLink').textContent='복사 완료'; setTimeout(()=>$('#copyLink').textContent='사이트 주소 복사',1400)}catch(e){prompt('아래 주소를 복사하세요.',u)} });
+const modal=$('#qrModal'); $('#qrOpen').addEventListener('click',()=>modal.classList.add('open')); $('#qrClose').addEventListener('click',()=>modal.classList.remove('open')); modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')}); addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open')});
+</script>
+</body>
+</html>
