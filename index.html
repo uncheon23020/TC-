@@ -18,7 +18,7 @@
 
 /* top navigation */
 .header{position:sticky;top:0;z-index:1000;height:var(--nav);background:rgba(246,244,239,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(18,18,18,.08)}
-.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;border-radius:13px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-.05em}.brand-mark b{color:var(--accent-soft)}.brand-copy strong{display:block;font-size:.95rem}.brand-copy small{display:block;margin-top:2px;color:var(--muted);font-size:.69rem;font-weight:700}.nav-links{display:flex;align-items:center;gap:8px}.nav-link{border:0;background:transparent;padding:10px 13px;border-radius:999px;color:#4f4c47;font-size:.83rem;font-weight:780;cursor:pointer}.nav-link:hover,.nav-link.active{background:var(--ink);color:#fff}.nav-join{margin-left:8px;background:var(--accent);color:#fff}.nav-join:hover,.nav-join.active{background:var(--accent);color:#fff}.menu{display:none;border:1px solid var(--line);background:var(--paper);width:42px;height:42px;border-radius:12px;font-size:1.1rem}.mobile-menu{display:none;position:fixed;left:0;right:0;top:var(--nav);z-index:999;background:var(--paper);border-bottom:1px solid var(--line);padding:10px var(--pad) 16px}.mobile-menu.open{display:grid}.mobile-menu button{text-align:left;border:0;background:transparent;padding:14px 4px;border-bottom:1px solid var(--line);font-weight:800}.mobile-menu button:last-child{border-bottom:0}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(18,18,18,.12);box-shadow:0 4px 14px rgba(18,18,18,.08);flex:0 0 auto}.brand-mark img{width:100%;height:100%;object-fit:contain;display:block}.brand-copy strong{display:block;font-size:.95rem}.brand-copy small{display:block;margin-top:2px;color:var(--muted);font-size:.69rem;font-weight:700}.nav-links{display:flex;align-items:center;gap:8px}.nav-link{border:0;background:transparent;padding:10px 13px;border-radius:999px;color:#4f4c47;font-size:.83rem;font-weight:780;cursor:pointer}.nav-link:hover,.nav-link.active{background:var(--ink);color:#fff}.nav-join{margin-left:8px;background:var(--accent);color:#fff}.nav-join:hover,.nav-join.active{background:var(--accent);color:#fff}.menu{display:none;border:1px solid var(--line);background:var(--paper);width:42px;height:42px;border-radius:12px;font-size:1.1rem}.mobile-menu{display:none;position:fixed;left:0;right:0;top:var(--nav);z-index:999;background:var(--paper);border-bottom:1px solid var(--line);padding:10px var(--pad) 16px}.mobile-menu.open{display:grid}.mobile-menu button{text-align:left;border:0;background:transparent;padding:14px 4px;border-bottom:1px solid var(--line);font-weight:800}.mobile-menu button:last-child{border-bottom:0}
 
 /* page system */
 .page{display:none;animation:pageIn .32s ease both}.page.active{display:block}@keyframes pageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -46,7 +46,7 @@
 .lang-btn{border:0;background:transparent;border-radius:999px;padding:7px 10px;color:#6a665f;font-size:.69rem;font-weight:850;line-height:1;cursor:pointer;white-space:nowrap;transition:.2s}
 .lang-btn:hover{color:var(--ink)}
 .lang-btn.active{background:var(--ink);color:#fff}
-@media(max-width:680px){.language-switcher{padding:3px}.lang-btn{padding:7px 7px;font-size:.61rem}.header-tools{gap:6px}.brand-mark{width:38px;height:38px}.brand-copy strong{font-size:.82rem}}
+@media(max-width:680px){.language-switcher{padding:3px}.lang-btn{padding:7px 7px;font-size:.61rem}.header-tools{gap:6px}.brand-mark{width:42px;height:42px}.brand-copy strong{font-size:.82rem}}
 @media(max-width:420px){.brand-copy{display:none}.lang-btn{padding:7px 6px;font-size:.58rem}}
 
 @media(max-width:1040px){.nav-links{display:none}.menu{display:block}.home-grid,.page-hero-grid,.feature,.video-box,.join-shell{grid-template-columns:1fr}.hero-media{min-height:520px}.page-hero-grid{gap:20px}.quick-grid{grid-template-columns:repeat(2,1fr)}.quick-item:nth-child(2){border-right:0}.quick-item:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14)}.teaser-grid{grid-template-columns:1fr 1fr}.teaser-grid .teaser:first-child{grid-column:1/-1}.four,.roles{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(2,1fr)}.step{border-bottom:1px solid var(--line)}.step:nth-child(2n){border-right:0}.step:last-child{grid-column:1/-1;border-bottom:0}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:360px 230px}.gallery-card:first-child{grid-column:1/-1;grid-row:auto}}
@@ -58,7 +58,7 @@
 <header class="header">
   <div class="container nav">
     <button class="brand" data-page="home" style="border:0;background:none;cursor:pointer" aria-label="홈으로">
-      <span class="brand-mark">T<b>C</b></span><span class="brand-copy"><strong data-k="clubName">TC Robotics Club</strong><small data-k="schoolName">운천고등학교</small></span>
+      <span class="brand-mark"><img src="assets/images/tc-logo.png" alt="TC 로보틱스 동아리 로고"></span><span class="brand-copy"><strong data-k="clubName">TC Robotics Club</strong><small data-k="schoolName">운천고등학교</small></span>
     </button>
     <nav class="nav-links" aria-label="Main navigation">
       <button class="nav-link active" data-page="home" data-i18n="navHome">홈</button>
@@ -189,6 +189,7 @@
   TC ROBOTICS 사이트 수정 전용 영역
   1) 문구 수정: 아래 SITE_TEXT의 ko / en / ja를 수정합니다.
   2) 사진/영상: SITE_CONFIG.media의 경로를 바꿉니다.
+  2-1) 상단 로고: assets/images/tc-logo.png 파일을 교체하면 됩니다.
   3) 지원 링크: SITE_CONFIG.applyUrl을 바꿉니다.
   ※ 언어 버튼: English / 日本語 / 한국어
 ============================================================ */
