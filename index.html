@@ -252,7 +252,7 @@ function applyLanguage(lang){
   const t=SITE_TEXT[lang];
   document.querySelectorAll('[data-i18n]').forEach(el=>{ const k=el.dataset.i18n; if(t[k]!==undefined) el.innerHTML=t[k]; });
   document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
-  document.title = lang==='ko'?'TC Robotics Club | 운천고등학교':lang==='ja'?'TC Robotics Club | 雲泉高等学校':'TC Robotics Club | Woonchun High School';
+  document.title = lang==='ko'?'TC Robotics Club | 운천고등학교':lang==='ja'?'TC Robotics Club | 雲泉高等学校':'TC Robotics Club | Uncheon High School';
 }
 function showPage(name, push=true){
   if(!['home','about','activity','media','join'].includes(name)) name='home'; currentPage=name;
