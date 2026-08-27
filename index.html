@@ -207,10 +207,39 @@ function hanyoValueToHtml(value){
     .replace(/&/g,'&amp;')
     .replace(/</g,'&lt;')
     .replace(/>/g,'&gt;');
-  return safe
-    .replace(/\[강조\]/g,'<em>')
-    .replace(/\[\/강조\]/g,'</em>')
+  const namedColors={
+    '빨강':'#e53935',
+    '파랑':'#2563eb',
+    '초록':'#168a55',
+    '주황':'#e86a17',
+    '보라':'#7c3aed',
+    '노랑':'#d39b00',
+    '분홍':'#db2777',
+    '하늘':'#0284c7',
+    '회색':'#68717d'
+  };
+
+  let html=safe
+    .replace(/\[강조\]/g,'<strong style="font-weight:900;color:var(--accent)">')
+    .replace(/\[\/강조\]/g,'</strong>')
+    .replace(/\[굵게\]/g,'<strong style="font-weight:900">')
+    .replace(/\[\/굵게\]/g,'</strong>')
+    .replace(/\[밑줄\]/g,'<span style="text-decoration:underline;text-underline-offset:.18em">')
+    .replace(/\[\/밑줄\]/g,'</span>');
+
+  Object.entries(namedColors).forEach(([name,color])=>{
+    html=html
+      .replace(new RegExp('\\['+name+'\\]','g'),'<span style="color:'+color+'">')
+      .replace(new RegExp('\\[\\/'+name+'\\]','g'),'</span>');
+  });
+
+  /* 직접 원하는 HEX 색상도 가능: [색=#ff4d6d]글씨[/색] */
+  html=html
+    .replace(/\[색=(#[0-9a-fA-F]{3,4}|#[0-9a-fA-F]{6}|#[0-9a-fA-F]{8})\]/g,'<span style="color:$1">')
+    .replace(/\[\/색\]/g,'</span>')
     .replace(/\r?\n/g,'<br>');
+
+  return html;
 }
 
 async function loadHanyoText(){
