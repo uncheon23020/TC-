@@ -9,13 +9,13 @@
 </style>
 </head>
 <body>
-<div class="top"><div class="top-inner"><div class="brand"><b>TC Robotics 사이트 간편 편집기</b><span>코드를 직접 찾지 않고 글·사진을 바꾸는 도구</span></div><div class="actions"><button class="btn" id="openSite">사이트 보기</button><button class="btn primary" id="downloadData">수정 파일 다운로드</button></div></div></div>
+<div class="top"><div class="top-inner"><div class="brand"><b>TC Robotics 사진 · 링크 / 기타 언어 편집기</b><span>한국어와 영어 글은 TXT 파일에서 수정합니다.</span></div><div class="actions"><button class="btn" id="openSite">사이트 보기</button><button class="btn primary" id="downloadData">수정 파일 다운로드</button></div></div></div>
 <div class="wrap">
-  <div class="guide"><strong>가장 쉬운 사용법</strong><br>① 왼쪽 메뉴에서 글이나 이미지를 수정합니다. ② 맨 위의 <b>수정 파일 다운로드</b>를 누릅니다. ③ 내려받은 <b>site-data.js</b> 하나만 기존 파일과 교체하면 끝입니다.<br><span style="color:#cbd1d8">이미지는 파일을 선택하면 자동으로 크기를 줄여 site-data.js 안에 넣기 때문에 assets 폴더를 직접 건드리지 않아도 됩니다.</span></div>
+  <div class="guide"><strong>글 수정 방식이 변경되었습니다.</strong><br>한국어 글은 <b>HANYO_TEXT.txt</b>, 영어 글은 <b>HANYO_TEXT_EN.txt</b>에서 직접 수정하세요.<br>이 편집기는 <b>사진 · 영상 / 지원 링크 / 일본어·러시아어·힌디어·불가리아어</b> 수정용입니다. 수정 후 <b>site-data.js</b>를 내려받아 교체하면 됩니다.</div>
   <div class="grid">
     <aside class="side" id="menu"></aside>
     <section class="panel">
-      <div id="langBar" class="langbar"><b>편집 언어</b><select id="editLang"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="ru">Русский</option><option value="hi">हिन्दी</option><option value="bg">Български</option></select><span class="badge">6개 언어</span><span class="hint">※ 한국어 내용을 바꿔도 다른 언어가 자동 번역되지는 않습니다.</span></div>
+      <div id="langBar" class="langbar"><b>편집 언어</b><select id="editLang"><option value="ko" disabled>한국어 (HANYO_TEXT.txt)</option><option value="en" disabled>English (HANYO_TEXT_EN.txt)</option><option value="ja" selected>日本語</option><option value="ru">Русский</option><option value="hi">हिन्दी</option><option value="bg">Български</option></select><span class="badge">6개 언어</span><span class="hint">※ 한국어는 HANYO_TEXT.txt, 영어는 HANYO_TEXT_EN.txt에서 수정하세요.</span></div>
       <div id="content"></div>
     </section>
   </div>
@@ -35,7 +35,7 @@ const SECTIONS={
  settings:{name:'링크 설정',special:'settings'}
 };
 const LABELS={topline:'상단 한줄',clubName:'동아리 이름',schoolName:'학교 이름',navHome:'메뉴 - 홈',navAbout:'메뉴 - 소개',navActivity:'메뉴 - 활동',navMedia:'메뉴 - 미디어',navJoin:'메뉴 - 지원',footerText:'푸터 문구',heroKicker:'홈 상단 작은 제목',heroTitle:'홈 메인 제목',heroLead:'홈 소개 문장',heroAbout:'소개 버튼',heroJoin:'지원 버튼',mini1Title:'미니 1 제목',mini1Text:'미니 1 설명',mini2Title:'미니 2 제목',mini2Text:'미니 2 설명',mini3Title:'미니 3 제목',mini3Text:'미니 3 설명',mediaHeroLabel:'대표 미디어 라벨',seasonLabel:'시즌 라벨',seasonTitle:'시즌 제목',seasonText:'시즌 설명',homeKicker:'홈 섹션 작은 제목',homeTitle:'홈 섹션 제목',homeCopy:'홈 섹션 설명',homeCard1Title:'홈 카드 1 제목',homeCard1Text:'홈 카드 1 설명',homeCard2Title:'홈 카드 2 제목',homeCard2Text:'홈 카드 2 설명',homeCard3Title:'홈 카드 3 제목',homeCard3Text:'홈 카드 3 설명',more:'자세히 보기 버튼',aboutKicker:'소개 작은 제목',aboutTitle:'소개 메인 제목',aboutLead:'소개 설명',aboutCard1Title:'소개 카드 1 제목',aboutCard1Text:'소개 카드 1 설명',aboutCard2Title:'소개 카드 2 제목',aboutCard2Text:'소개 카드 2 설명',aboutCard3Title:'소개 카드 3 제목',aboutCard3Text:'소개 카드 3 설명',aboutCard4Title:'소개 카드 4 제목',aboutCard4Text:'소개 카드 4 설명',aboutFeatureKicker:'신입부원 작은 제목',aboutFeatureTitle:'신입부원 제목',aboutFeatureText:'신입부원 설명',joinButton:'지원 안내 버튼',activityKicker:'활동 작은 제목',activityTitle:'활동 메인 제목',activityLead:'활동 설명',step1Title:'1단계 제목',step1Text:'1단계 설명',step2Title:'2단계 제목',step2Text:'2단계 설명',step3Title:'3단계 제목',step3Text:'3단계 설명',step4Title:'4단계 제목',step4Text:'4단계 설명',step5Title:'5단계 제목',step5Text:'5단계 설명',competitionKicker:'대회 기록 작은 제목',competitionTitle:'대회/시즌 이름',competitionText:'대회 설명',mediaButton:'미디어 버튼',mediaKicker:'미디어 작은 제목',mediaTitle:'미디어 메인 제목',mediaLead:'미디어 설명',tabPhotos:'사진 탭',tabVideos:'영상 탭',tabCode:'코드 탭',videoKicker:'영상 작은 제목',videoTitle:'영상 제목',videoText:'영상 설명',codeKicker:'코드 작은 제목',codeTitle:'코드 제목',codeText:'코드 설명',joinKicker:'지원 작은 제목',joinTitle:'지원 메인 제목',joinLead:'지원 설명',recruiting:'모집 라벨',joinHeadline:'모집 카드 제목',joinText:'모집 카드 설명',apply:'지원 버튼',recruitInfo:'모집 정보 제목',targetLabel:'모집 대상 라벨',targetValue:'모집 대상',dateLabel:'기간 라벨',dateValue:'모집 기간',placeLabel:'장소 라벨',placeValue:'활동 장소',contactLabel:'문의 라벨',contactValue:'문의 방법',joinNotice:'지원 안내문',strip1Label:'정보 라벨 1',strip2Label:'정보 라벨 2',strip3Label:'정보 라벨 3',strip4Label:'정보 라벨 4',strip4Value:'활동 분야'};
-let section='general';let lang='ko';
+let section='images';let lang='ja';
 function friendly(v){return String(v??'').replaceAll('<br>','\n').replaceAll('<em>','[강조]').replaceAll('</em>','[/강조]')}
 function encoded(v){return String(v).replaceAll('[강조]','<em>').replaceAll('[/강조]','</em>').replace(/\r?\n/g,'<br>')}
 function toast(msg){const s=document.getElementById('status');s.textContent=msg;s.classList.add('show');setTimeout(()=>s.classList.remove('show'),2200)}

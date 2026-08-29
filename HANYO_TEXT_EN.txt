@@ -1,0 +1,363 @@
+============================================================
+TC 홈페이지 English 문구 수정 파일
+============================================================
+
+사용법
+1) [대괄호 안 제목]은 지우거나 바꾸지 마세요.
+2) 제목 바로 아래의 문장만 원하는 내용으로 바꾸세요.
+3) 줄바꿈은 엔터를 누르면 그대로 사이트에 적용됩니다.
+4) 강조: [강조]내용[/강조] 또는 [highlight]content[/highlight]
+5) 굵게: [굵게]내용[/굵게] 또는 [bold]content[/bold]
+6) 밑줄: [밑줄]내용[/밑줄] 또는 [underline]content[/underline]
+7) 색상: [빨강]내용[/빨강], [red]content[/red], [색=#6c63ff]내용[/색]
+8) GitHub에서 이 TXT 파일만 수정하고 Commit changes를 누르면 실제 사이트에 반영됩니다.
+
+※ 이 파일은 English 화면 전용입니다. 한국어를 수정해도 영어는 자동 번역되지 않으므로, 영어 문장은 여기에서 직접 적으면 됩니다.
+
+
+-------------------- 기본 정보 --------------------
+
+[상단 한줄]
+FTC · ROBOT BUILD · PROGRAMMING
+
+[동아리 이름]
+TC Robotics Club
+
+[학교 이름]
+Uncheon High School
+
+[메뉴 - 홈]
+Home
+
+[메뉴 - 소개]
+About the Club
+
+[메뉴 - 활동]
+Activities · Competitions
+
+[메뉴 - 미디어]
+Photos · Videos
+
+[메뉴 - 지원]
+Join Us
+
+[푸터 문구]
+© 2026 Uncheon High School
+
+
+-------------------- 홈 화면 --------------------
+
+[홈 상단 작은 제목]
+Uncheon High School Robotics Club
+
+[홈 메인 제목]
+Think
+Create
+[highlight]We are TC.[/highlight]
+
+[홈 소개 문장]
+We are Think & Creative (TC), a club representing Uncheon High School. True to our name—thinking beyond the usual frame and exploring different ideas—we grow through creativity, challenge, and hands-on problem solving.
+
+[소개 버튼]
+Learn About TC
+
+[홈 상단 지원 버튼]
+Join Us
+
+[미니 1 제목]
+ROBOT BUILD
+
+[미니 1 설명]
+Design · Build · Improve
+
+[미니 2 제목]
+PROGRAMMING
+
+[미니 2 설명]
+Sensors · Motors · Autonomous
+
+[미니 3 제목]
+COMPETITION
+
+[미니 3 설명]
+Strategy · Testing · Matches
+
+[대표 미디어 라벨]
+Featured Photo or Match Video
+
+[시즌 라벨]
+THIS SEASON
+
+[시즌 제목]
+FIRST CANOPY
+
+[시즌 설명]
+<Coming September 12, 2026>
+Nature & Biodiversity
+
+[정보 라벨 1]
+CLUB
+
+[정보 라벨 2]
+SCHOOL
+
+[정보 라벨 3]
+TEAM
+
+[정보 라벨 4]
+FOCUS
+
+[활동 분야]
+ROBOTICS · FTC
+
+[홈 섹션 작은 제목]
+TC AT A GLANCE
+
+[홈 섹션 제목]
+Start with what interests you.
+
+[홈 섹션 설명]
+We have organized TC’s key features into several sections. If you have any other questions, please contact us.
+
+[홈 카드 1 제목]
+What kind of club is TC?
+
+[홈 카드 1 설명]
+See how students take the lead and work together as one team in TC.
+
+[홈 카드 2 제목]
+How does a robot come together?
+
+[홈 카드 2 설명]
+Follow how we build a competition robot throughout an entire season.
+
+[홈 카드 3 제목]
+What else does TC do?
+
+[홈 카드 3 설명]
+Explore the activities and milestones that show how TC continues to grow.
+
+[자세히 보기 버튼]
+View Details →
+
+
+-------------------- 동아리 소개 --------------------
+
+[소개 작은 제목]
+ABOUT THE CLUB
+
+[소개 메인 제목]
+TC has built its tradition and know-how since 2012.
+
+[소개 설명]
+TC aims to be more than just a high school club. Students take ownership of their roles, work as a team, and grow into future interdisciplinary problem-solvers. Years of experience have led to strong competition results, including first-place finishes. TC has also been selected for the KLA scholarship program for multiple consecutive years, expanding both academic and research opportunities.
+
+[소개 카드 1 제목]
+Mechanical Design · Build
+
+[소개 카드 1 설명]
+Each season, we adjust the frame to meet the rules, compare possible approaches, and build the robot based on what works most efficiently.
+
+[소개 카드 2 제목]
+Robot Programming
+
+[소개 카드 2 설명]
+We control motors and sensors and write autonomous and driver-control code.
+
+[소개 카드 3 제목]
+Repeated Testing
+
+[소개 카드 3 설명]
+We recreate real match situations, find problems, and continuously improve both the robot structure and the code.
+
+[소개 카드 4 제목]
+Solve It as a Team
+
+[소개 카드 4 설명]
+Mechanical, programming, and strategy roles connect with one another to complete a single robot.
+
+[신입부원 작은 제목]
+FOR NEW MEMBERS
+
+[신입부원 제목]
+Not the student who already knows everything,
+but the student who wants to try.
+
+[신입부원 설명]
+It is okay if robotics or coding is completely new to you. If you are interested in building, fixing, and trying again, you can learn through TC activities.
+
+[지원 안내 버튼]
+See How to Join
+
+
+-------------------- 활동 · 대회 --------------------
+
+[활동 작은 제목]
+ACTIVITIES · COMPETITIONS
+
+[활동 메인 제목]
+Build it. Code it.
+Prove it in competition.
+
+[활동 설명]
+When an actual competition and season schedule are confirmed, this page can be updated simply by changing the text. The flow below shows the typical process TC follows while preparing for robotics competitions such as FTC.
+
+[1단계 제목]
+Game Analysis
+
+[1단계 설명]
+Review the rules and challenges, then decide which robot functions and match strategies are needed.
+
+[2단계 제목]
+Design
+
+[2단계 설명]
+Compare ideas and plan the robot structure and mechanisms.
+
+[3단계 제목]
+Build
+
+[3단계 설명]
+Assemble the frame and components to complete the physical robot.
+
+[4단계 제목]
+Programming
+
+[4단계 설명]
+Implement sensors, motors, autonomous routines, and driver-control code.
+
+[5단계 제목]
+Testing · Competition
+
+[5단계 설명]
+Repeat testing and improvement, then operate the robot in actual matches.
+
+[대회 기록 작은 제목]
+COMPETITION RECORD
+
+[대회/시즌 이름]
+Awards & Achievements
+
+[대회 설명]
+2015–2016 Korea Robot Championship, FTC Division — Best Challenge Award
+2016–2017 Korea Robot Championship, FTC Division — Design Award, 2nd Place Assist
+2017–2018 Korea Robot Championship, FTC Division — Think Award
+2018–2019 Korea Robot Championship, FTC Division — Inspire Award (1st Overall), Judge Award
+2020–2021 Korea Robot Championship, FTC Division — Robot Game Winning 3rd Award (3rd Place)
+2021–2022 Korea Robot Championship, FTC Division — Inspire Award 2nd Place (2nd Overall), Winning Alliance 1st Place
+2022–2023 Korea Robot Championship, FTC Division — Creative Award, Judge Award
+2023 Osan 1st Hackathon — Grand Prize (Jul. 21, 2023 / Osan)
+2023 KLA Scholarship Program Advance Insights Challenge — Grand Prize (Nov. 20, 2023 / Suwon)
+2023–2024 Korea Robot Championship, FTC Division — Winning Alliance Captain (1st Place) 23020, Think Award 24906, Winning Alliance 1st Team Selected 24906 (Jan. 27, 2024 / Daejeon)
+2023–2024 FIRST World Championship — Represented Korea; Judges’ Choice Award 23020 (Apr. 20, 2024 / Houston, USA)
+2024 Osan 2nd Hackathon — Encouragement Award (Aug. 23, 2024 / Osan)
+2024 KLA Scholarship Program Advance Insights Challenge — 3rd Place (Nov. 16, 2024 / Suwon)
+2024–2025 Korea Robot Championship, FTC Division — Inspire Award 1st Place (1st Overall) 23020, Inspire Award 2nd Place (2nd Overall) 24906, Winning Alliance 1st Team Selected 24906, King Sejong Division Winning Alliance 1st Team Selected 24906 (Jan. 20, 2025 / Daejeon)
+2024–2025 FIRST World Championship — Represented Korea (Apr. 16–19, 2025 / Houston, USA)
+2025 KLA Scholarship Program — Design Award (24906), Engineering Notes Award (24906)
+2025–2026 Korea Robot Championship, FTC Division — Inspire Award 3rd Place (3rd Overall) 24906
+Championship Finalist Alliance Award (24906)
+2025–2026 FIRST World Championship — Represented Korea (Houston, USA)
+2026 Mission Master 1st Award, Mission Master 2nd Award (Ulsan)
+
+[미디어 버튼]
+See Photos · Videos
+
+
+-------------------- 사진 · 영상 문구 --------------------
+
+[미디어 작은 제목]
+PHOTOS · VIDEOS
+
+[미디어 메인 제목]
+See our real activities
+all in one place.
+
+[미디어 설명]
+This media section is designed for robot photos, build progress, match videos, and code screens.
+
+[사진 탭]
+Photos
+
+[영상 탭]
+Videos
+
+[코드 탭]
+Coding
+
+[영상 작은 제목]
+VIDEO
+
+[영상 제목]
+Match Video or
+Build Timelapse
+
+[영상 설명]
+Add an actual MP4 file and it can be played directly here. The title and description can also be edited later.
+
+[코드 작은 제목]
+ROBOT CODE
+
+[코드 제목]
+The code that makes
+our robot move.
+
+[코드 설명]
+A short example from the team’s real autonomous, sensor-control, or driver-control code helps visitors understand what students actually work on.
+
+
+-------------------- 지원 안내 --------------------
+
+[지원 작은 제목]
+JOIN TC
+
+[지원 메인 제목]
+We are looking for teammates
+to build the next robot with us.
+
+[지원 설명]
+When the recruitment schedule and application method are confirmed, simply replace the fields below with the actual information. The website QR code can be used separately on posters or printed materials instead of being placed inside this page.
+
+[모집 라벨]
+RECRUITING
+
+[모집 카드 제목]
+If you like robots,
+or want to build one yourself.
+
+[모집 카드 설명]
+An interest in mechanics, programming, or match strategy is enough to begin. Update this section later to match the actual recruitment criteria.
+
+[지원 폼으로 가는 버튼]
+Open Application Form →
+
+[모집 정보 제목]
+Recruitment Information
+
+[모집 대상 라벨]
+Eligibility
+
+[모집 대상]
+Uncheon High School 1st- and 2nd-year students
+
+[기간 라벨]
+Recruitment Period
+
+[모집 기간]
+Recruitment is currently closed.
+
+[장소 라벨]
+Location
+
+[활동 장소]
+[Activity location]
+
+[문의 라벨]
+Contact
+
+[문의 방법]
+[Advisor / contact information]
+
+[지원 안내문]
+Recruitment is currently closed.
+

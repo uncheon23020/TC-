@@ -1,0 +1,25 @@
+TC 홈페이지 TXT 문구 적용 패치
+
+[가장 쉬운 적용 방법]
+1. 이 ZIP 안의 파일들을 기존 TC--main 폴더에 그대로 덮어씁니다.
+2. 새로 추가된 HANYO_TEXT_EN.txt도 반드시 같이 올립니다.
+3. GitHub에 변경 파일들을 Commit 합니다.
+4. GitHub Pages 갱신 후 사이트를 새로고침합니다.
+
+[앞으로 글 수정]
+- 한국어: HANYO_TEXT.txt
+- 영어: HANYO_TEXT_EN.txt
+- [대괄호 제목]은 그대로 두고 그 아래 문장만 수정
+- 수정 후 Commit changes만 하면 실제 배포 사이트에 반영
+
+[다른 언어]
+- 일본어 / 러시아어 / 힌디어 / 불가리아어는 기존 site-data.js 번역 유지
+
+[사진/영상/지원 링크]
+- EDIT_HERE.html 또는 HANYO_EDIT.html 사용
+
+[주의]
+index.html을 컴퓨터에서 더블클릭해 file:// 방식으로 열면 브라우저 보안 때문에
+TXT의 새 수정사항을 직접 읽지 못할 수 있습니다.
+실제 GitHub Pages 사이트에서는 TXT가 자동으로 읽혀 적용됩니다.
+현재 한국어/영어 문구는 site-data.js에도 예비값으로 동기화해 두었습니다.

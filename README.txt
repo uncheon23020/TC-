@@ -1,12 +1,20 @@
-TC Robotics Club 홍보사이트 v6
+TC Robotics Club 홍보사이트 - TXT 직접 수정 버전
 
-이번 버전은 수정하기 쉽게 구조를 바꿨습니다.
+[사이트 실행]
+- index.html
 
-1. 사이트 실행: index.html
-2. 가장 쉬운 수정: EDIT_HERE.html
-3. 글/이미지/지원 링크 설정은 site-data.js 한 파일에 모여 있습니다.
-4. 편집기에서 사진을 고르면 자동 압축 후 site-data.js 안에 내장됩니다.
-5. 언어: 한국어 / English / 日本語 / Русский / हिन्दी / Български
-6. 자세한 방법은 간편_수정_안내.txt를 읽어 주세요.
+[가장 쉬운 글 수정]
+- 한국어: HANYO_TEXT.txt
+- 영어: HANYO_TEXT_EN.txt
+- 두 파일 모두 [대괄호 제목]은 그대로 두고 아래 문장만 수정하면 됩니다.
+- GitHub Pages에서는 TXT 파일을 Commit한 뒤 사이트가 갱신되면 자동 반영됩니다.
 
-기존 방식으로도 assets/images 및 assets/videos 폴더를 사용할 수 있습니다.
+[다른 언어]
+- 日本語 / Русский / हिन्दी / Български는 site-data.js의 기존 번역을 그대로 사용합니다.
+
+[사진 · 영상 · 지원 링크]
+- EDIT_HERE.html 또는 HANYO_EDIT.html 사용
+- 편집 후 내려받은 site-data.js로 기존 파일을 교체
+
+[자세한 안내]
+- HANYO_README.txt 참고

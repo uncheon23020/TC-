@@ -9,24 +9,22 @@
 </style>
 </head>
 <body>
-<div class="top"><div class="top-inner"><div class="brand"><b>하뇨용 TC 사이트 글 수정기</b><span>index.html은 건드리지 말고 여기서 글만 바꾸면 돼</span></div><div class="actions"><button class="btn" id="openSite">사이트 보기</button><button class="btn primary" id="downloadData">수정 파일 다운로드</button></div></div></div>
+<div class="top"><div class="top-inner"><div class="brand"><b>TC 사이트 사진 · 링크 / 기타 언어 편집기</b><span>한국어와 영어 글은 TXT 파일에서 수정합니다.</span></div><div class="actions"><button class="btn" id="openSite">사이트 보기</button><button class="btn primary" id="downloadData">수정 파일 다운로드</button></div></div></div>
 <div class="wrap">
-  <div class="guide"><strong>하뇨야, 진짜 여기만 보면 돼!</strong><br>
-  ① <b>index.html은 건드리지 마.</b> 이 파일(HANYO_EDIT.html)만 열어.<br>
-  ② 왼쪽에서 <b>홈 화면 / 동아리 소개 / 활동·대회 / 사진·영상 문구 / 지원 안내</b>를 골라서 글만 수정해.<br>
-  ③ 다 바꿨으면 맨 위의 <b>수정 파일 다운로드</b>를 눌러. 그러면 <b>site-data.js</b>가 하나 받아져.<br>
-  ④ GitHub에서 기존 <b>site-data.js</b>를 새 파일 내용으로 교체하면 홈페이지에 바로 적용돼.<br>
-  <span style="color:#cbd1d8">줄바꿈은 그냥 엔터 치면 되고, 빨간 강조 글씨는 [강조]여기에 글[/강조] 이렇게 쓰면 돼. 사진도 여기서 고를 수 있어.</span></div>
+  <div class="guide"><strong>글 수정 방식이 더 쉬워졌어!</strong><br>
+  ① <b>한국어 글</b>은 <b>HANYO_TEXT.txt</b>에서 수정해.<br>
+  ② <b>영어 글</b>은 <b>HANYO_TEXT_EN.txt</b>에서 수정해.<br>
+  ③ 이 편집기는 이제 <b>사진 · 영상 / 지원 링크 / 일본어·러시아어·힌디어·불가리아어</b>를 바꿀 때 사용하면 돼.<br>
+  ④ 사진이나 링크를 바꾼 뒤 <b>수정 파일 다운로드</b>를 눌러 받은 <b>site-data.js</b>를 교체하면 돼.</div>
   <div style="background:#fff;border:1px solid #dfe3e8;border-radius:14px;padding:16px 18px;margin:-4px 0 18px;line-height:1.65;color:#343b45">
-    <b style="display:block;margin-bottom:6px">⚠ 이것만 조심해</b>
-    <span>• <b>site-data.js</b> 파일 이름은 바꾸지 마.</span><br>
-    <span>• 다른 언어는 자동 번역이 아니야. 한국어만 고치려면 위에서 <b>한국어</b> 그대로 두면 돼.</span><br>
-    <span>• 수정하다 이상해져도 index.html은 그대로라서 크게 망가질 일 없어. 다시 site-data.js만 바꾸면 돼.</span>
+    <b style="display:block;margin-bottom:6px">중요</b>
+    <span>• 한국어/영어 문구는 site-data.js보다 TXT 파일이 우선 적용돼.</span><br>
+    <span>• 따라서 한국어/영어 문구는 이 편집기에서 수정하지 말고 TXT를 수정하면 돼.</span>
   </div>
   <div class="grid">
     <aside class="side" id="menu"></aside>
     <section class="panel">
-      <div id="langBar" class="langbar"><b>편집 언어</b><select id="editLang"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="ru">Русский</option><option value="hi">हिन्दी</option><option value="bg">Български</option></select><span class="badge">6개 언어</span><span class="hint">※ 한국어 내용을 바꿔도 다른 언어가 자동 번역되지는 않습니다.</span></div>
+      <div id="langBar" class="langbar"><b>편집 언어</b><select id="editLang"><option value="ko" disabled>한국어 (HANYO_TEXT.txt)</option><option value="en" disabled>English (HANYO_TEXT_EN.txt)</option><option value="ja" selected>日本語</option><option value="ru">Русский</option><option value="hi">हिन्दी</option><option value="bg">Български</option></select><span class="badge">6개 언어</span><span class="hint">※ 한국어는 HANYO_TEXT.txt, 영어는 HANYO_TEXT_EN.txt에서 수정하세요.</span></div>
       <div id="content"></div>
     </section>
   </div>
@@ -46,7 +44,7 @@ const SECTIONS={
  settings:{name:'링크 설정',special:'settings'}
 };
 const LABELS={topline:'상단 한줄',clubName:'동아리 이름',schoolName:'학교 이름',navHome:'메뉴 - 홈',navAbout:'메뉴 - 소개',navActivity:'메뉴 - 활동',navMedia:'메뉴 - 미디어',navJoin:'메뉴 - 지원',footerText:'푸터 문구',heroKicker:'홈 상단 작은 제목',heroTitle:'홈 메인 제목',heroLead:'홈 소개 문장',heroAbout:'소개 버튼',heroJoin:'지원 버튼',mini1Title:'미니 1 제목',mini1Text:'미니 1 설명',mini2Title:'미니 2 제목',mini2Text:'미니 2 설명',mini3Title:'미니 3 제목',mini3Text:'미니 3 설명',mediaHeroLabel:'대표 미디어 라벨',seasonLabel:'시즌 라벨',seasonTitle:'시즌 제목',seasonText:'시즌 설명',homeKicker:'홈 섹션 작은 제목',homeTitle:'홈 섹션 제목',homeCopy:'홈 섹션 설명',homeCard1Title:'홈 카드 1 제목',homeCard1Text:'홈 카드 1 설명',homeCard2Title:'홈 카드 2 제목',homeCard2Text:'홈 카드 2 설명',homeCard3Title:'홈 카드 3 제목',homeCard3Text:'홈 카드 3 설명',more:'자세히 보기 버튼',aboutKicker:'소개 작은 제목',aboutTitle:'소개 메인 제목',aboutLead:'소개 설명',aboutCard1Title:'소개 카드 1 제목',aboutCard1Text:'소개 카드 1 설명',aboutCard2Title:'소개 카드 2 제목',aboutCard2Text:'소개 카드 2 설명',aboutCard3Title:'소개 카드 3 제목',aboutCard3Text:'소개 카드 3 설명',aboutCard4Title:'소개 카드 4 제목',aboutCard4Text:'소개 카드 4 설명',aboutFeatureKicker:'신입부원 작은 제목',aboutFeatureTitle:'신입부원 제목',aboutFeatureText:'신입부원 설명',joinButton:'지원 안내 버튼',activityKicker:'활동 작은 제목',activityTitle:'활동 메인 제목',activityLead:'활동 설명',step1Title:'1단계 제목',step1Text:'1단계 설명',step2Title:'2단계 제목',step2Text:'2단계 설명',step3Title:'3단계 제목',step3Text:'3단계 설명',step4Title:'4단계 제목',step4Text:'4단계 설명',step5Title:'5단계 제목',step5Text:'5단계 설명',competitionKicker:'대회 기록 작은 제목',competitionTitle:'대회/시즌 이름',competitionText:'대회 설명',mediaButton:'미디어 버튼',mediaKicker:'미디어 작은 제목',mediaTitle:'미디어 메인 제목',mediaLead:'미디어 설명',tabPhotos:'사진 탭',tabVideos:'영상 탭',tabCode:'코드 탭',videoKicker:'영상 작은 제목',videoTitle:'영상 제목',videoText:'영상 설명',codeKicker:'코드 작은 제목',codeTitle:'코드 제목',codeText:'코드 설명',joinKicker:'지원 작은 제목',joinTitle:'지원 메인 제목',joinLead:'지원 설명',recruiting:'모집 라벨',joinHeadline:'모집 카드 제목',joinText:'모집 카드 설명',apply:'지원 버튼',recruitInfo:'모집 정보 제목',targetLabel:'모집 대상 라벨',targetValue:'모집 대상',dateLabel:'기간 라벨',dateValue:'모집 기간',placeLabel:'장소 라벨',placeValue:'활동 장소',contactLabel:'문의 라벨',contactValue:'문의 방법',joinNotice:'지원 안내문',strip1Label:'정보 라벨 1',strip2Label:'정보 라벨 2',strip3Label:'정보 라벨 3',strip4Label:'정보 라벨 4',strip4Value:'활동 분야'};
-let section='general';let lang='ko';
+let section='images';let lang='ja';
 function friendly(v){return String(v??'').replaceAll('<br>','\n').replaceAll('<em>','[강조]').replaceAll('</em>','[/강조]')}
 function encoded(v){return String(v).replaceAll('[강조]','<em>').replaceAll('[/강조]','</em>').replace(/\r?\n/g,'<br>')}
 function toast(msg){const s=document.getElementById('status');s.textContent=msg;s.classList.add('show');setTimeout(()=>s.classList.remove('show'),2200)}
